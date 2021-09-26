@@ -58,6 +58,7 @@
                 </configuration>
             </plugin>
         </plugins>
+        <finalName>blog-docker</finalName>
     </build>
 
 </project>
