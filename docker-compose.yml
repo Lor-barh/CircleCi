@@ -1,0 +1,33 @@
+version: '3.8'
+services:
+  API:
+    image: 'blog'
+    ports:
+      - "8080:8080"
+
+
+    depends_on:
+      - PostgreSQL
+
+#    environment:
+#      - SPRING_DATASOURCE_URL=jdbc:postgresql://PostgreSQL:5432/blog_db
+#      - SPRING_DATASOURCE_USERNAME=postgres
+#      - SPRING_DATASOURCE_PASSWORD=private
+#      - SPRING_JPA_HIBERNATE_DDL_AUTO=update
+
+
+  PostgreSQL:
+    container_name: postgres_container
+    image: postgres
+    ports:
+    - "5432:5432"
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=private
+      - POSTGRES_DB=blog
+
+#    healthcheck:
+#      test: [ "CMD-SHELL", "pg_isready -U postgres" ]
+#      interval: 20s
+#      timeout: 3s
+#      retries: 10
