@@ -6,6 +6,7 @@ jobs:
       - image: circleci/openjdk:11-stretch
     steps:
       - checkout
+      
       - restore_cache:
           key: circleci-blog-docker-{{ checksum "pom.xml" }}
       - run: mvn dependency:go-offline
